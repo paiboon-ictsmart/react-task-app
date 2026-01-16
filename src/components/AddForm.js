@@ -1,14 +1,22 @@
 import "./AddForm.css";
-export default function AddForm() {
+export default function AddForm(props) {
+  const { title, setTitle, saveTask, editId } = props;
   return (
     <>
       <h2>แอปบริหารจัดการงานของบริษัท</h2>
-      <div className="form-control">
-        <input type="text" className="text-input" />
-        <button type="submit" className="submit-btn">
-          เพิ่ม
-        </button>
-      </div>
+      <form onSubmit={saveTask}>
+        <div className="form-control">
+          <input
+            type="text"
+            className="text-input"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
+          <button type="submit" className="submit-btn">
+            {editId ? "อัปเดท" : "เพิ่ม"}
+          </button>
+        </div>
+      </form>
     </>
   );
 }
