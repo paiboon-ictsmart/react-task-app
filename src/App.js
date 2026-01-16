@@ -26,7 +26,6 @@ function App() {
         }
         return item;
       });
-      console.log(updateTask);
       setTasks(updateTask);
       setEditId(null);
     } else {
